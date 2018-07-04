@@ -1,0 +1,54 @@
+@import "src/assets/styles/variables";
+
+.image-preview {
+  width: 100%;
+  object-fit: cover;
+}
+.empty-list {
+  text-align: center;
+}
+
+.news {
+  display: flex;
+  .date {
+    flex: 1;
+    color: $date-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+    word-spacing: 1000px;
+    &:before {
+      content: '';
+      height: 50px;
+      width: 3px;
+      background-color: $date-border-color;
+    }
+  }
+  .not-last:after {
+    content: '';
+    height: 100%;
+    width: 3px;
+    background-color: $date-border-color;
+  }
+
+  .right-side {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    .title {
+      color: $main-color;
+      margin: 1em auto;
+    }
+
+    .description {
+      color: #1f2444;
+      margin-bottom: 2em;
+      line-height: 2em;
+    }
+  }
+}
+

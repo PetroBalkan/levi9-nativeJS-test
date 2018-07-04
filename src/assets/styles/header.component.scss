@@ -1,0 +1,49 @@
+@import "src/assets/styles/variables";
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .circle {
+    width: 150px;
+    height: 150px;
+    margin-top: 75px;
+    background-color: $main-color;
+    border-radius: 50%;
+    position: relative;
+    .heart {
+      position: absolute;
+      top: calc(50% - 25px);
+      right: -25px;
+      width: 50px;
+    }
+  }
+  .logo {
+    margin: 50px auto;
+    width: 100%;
+    text-align: center;
+    img{
+      width: 50%;
+    }
+  }
+  .title {
+    text-transform: uppercase;
+    text-align: center;
+    h1 {
+      margin: 10px auto;
+      background-color: #202545;
+      color: #ffffff;
+      padding: 1rem;
+      width: fit-content;
+    }
+  }
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      margin: 10px auto;
+    }
+  }
+}
