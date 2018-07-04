@@ -42,6 +42,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: $main-color;
+    text-decoration: none;
     p {
       margin: 10px auto;
     }

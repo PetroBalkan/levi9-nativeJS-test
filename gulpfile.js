@@ -1,15 +1,28 @@
-var gulp = require('gulp');
-var minifyCSS = require('gulp-csso');
-var sass = require('gulp-sass');
+const gulp = require('gulp');
 
-var sassFiles = 'src/assets/styles/**/*.scss',
-    cssDest = 'src/assets/styles/css/';
+/**
+ * Setting root
+ */
+global.appRoot = __dirname;
 
-gulp.task('styles', function () {
-    gulp.src(sassFiles)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest(cssDest));
-});
+/**
+ * Resource tasks
+ */
+gulp.task('styles:app', require('./config/tasks/resource/styles/app'));
+gulp.task('styles', gulp.series(['styles:app']));
+gulp.task('html', require('./config/tasks/resource/html'));
+gulp.task('images', require('./config/tasks/resource/images'));
+gulp.task('scripts', require('./config/tasks/resource/scripts'));
+gulp.task('data', require('./config/tasks/resource/data'));
+gulp.task('resource', gulp.series(['styles', 'html', 'images', 'scripts', 'data']));
 
-gulp.task('default', ['styles']);
+/**
+ * Environment tasks
+ */
+gulp.task('server', require('./config/tasks/env/server'));
+gulp.task('app', gulp.series(['resource', 'server']));
+
+/**
+ * Compress assets
+ */
+require('./config/tasks/compress');

@@ -12,7 +12,7 @@ window.onload = (ev) => {
 
             news.forEach((item, index) => {
                 newsList.innerHTML += `
-                    <img class="image-preview" src="assets/images/${item.img}">
+                    <img class="image-preview" src="/images/${item.img}">
                     <div class="news">
                         <div class="date ${index !== news.length - 1 ? 'not-last' : ''}">${item.date}</div>
                         <div class="right-side">
@@ -41,7 +41,7 @@ function getNews() {
             }
             resolve(JSON.parse(xhr.responseText));
         };
-        xhr.open('get', 'assets/data/db.json', true);
+        xhr.open('get', '/data/db.json', true);
         xhr.send();
     })
 }
